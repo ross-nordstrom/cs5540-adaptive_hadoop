@@ -1,5 +1,15 @@
 \section{Related Work}
 \label{section:relatedwork}
-Hadoop MapReduce is a popular subject of research. The primary focus of 
-performance improvement that we have found is surrounding the efficiency of 
-sending MapReduce jobs \cite{LevitatedMerge}.
+Hadoop MapReduce is a popular subject of research. The primary focus of the research
+is on performance improvement. While the proposals other authors have made vary in
+approach and effectiveness, we have not yet found an approach similar to the one
+we propose.
+
+Here, we list a few of the other approaches to performance improvement that we have found:
+\begin{description}
+  \item{Levitated Merge} Improves the performance of MapReduce by focusing on network latency between workers \cite{LevitatedMerge}.
+  \item{SHadoop} Improves MapReduce performance by optimizing the job and task execution \cite{SHadoop}.
+  \item{HJ-Hadoop} Improves MapReduce performance by optimizing for multi-core machines \cite{HJHadoop}.
+  \item{I/O-Intensive Hadoop} Improves MapReduce performance by using dynamic processing slots for I/O instensive jobs \cite{IOIntensive}.
+  \item{Hybrid MapReduce} Improves MapReduce performance by using a combination of virtual and native environments \cite{HybricMR}.
+\end{description}
