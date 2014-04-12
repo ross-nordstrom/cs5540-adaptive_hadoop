@@ -1,0 +1,35 @@
+\section{Motivation}
+\label{section:motivation}
+Hadoop MapReduce is an easy-to-use implementation of distributed, parallel data 
+processing. It has a history of making it easy for data scientists and industry 
+developers to implement parallel computing in the cloud, but for the serious 
+user of Hadoop, there is room for improvement. Hadoop does most things well, 
+but we propose a modification to it that would improve its performance for all 
+users.
+
+\subsection{Homogeneous Task Assignment}
+Hadoop MapReduce assumes homogeneous hardware configurations for the nodes in 
+its cluster when it schedules and assigns tasks to them. If the nodes in the 
+cluster in fact have heterogeneous hardware configurations then the execution 
+and completion times of these tasks could vary in unanticipated ways. 
+Additionally, interference from non-cluster nodes running on the same hardware 
+could change performance as well. These two problems can cause inefficient 
+resource usage and degraded performance. 
+
+\subsection{Modifying Hadoop}
+A new scheduling and assignment algorithm is needed that is capable of 
+identifying the hardware configurations of the nodes in its cluster and 
+scheduling tasks on them accordingly. This algorithm should also be sensitive 
+to interference from other non-cluster nodes and adapt. The hardware 
+configurations of the cluster nodes can be set ahead of time, however, 
+interference from non-cluster nodes cannot be anticipated. This algorithm 
+should be able to detect interference and dynamically change the task settings 
+accordingly.
+
+The existing Hadoop task scheduler/assignment module will need to be identified 
+in the source code for Hadoop 1.2.1. It will then need to be either modified or 
+replaced to meet the requirements proposed in this document. A server cluster 
+with heterogeneous hardware configurations will be created and used to test the 
+performance of the system. Both the modified and unmodified code will be built 
+and deployed on this cluster. Both will run the same MapReduce job and the 
+performance of each will be compared.

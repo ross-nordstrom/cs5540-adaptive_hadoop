@@ -1,0 +1,10 @@
+#LaTeX stuff
+*.bbl
+*.blg
+*.aux
+*.log
+*.pdf
+*.out
+
+#vim
+*.swp

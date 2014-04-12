@@ -1,0 +1,75 @@
+\documentclass{sig-alternate}
+
+\usepackage{graphicx}
+
+
+\usepackage{url}
+\usepackage{hyperref} 
+\hypersetup{breaklinks} 
+
+\begin{document}
+\title{Adaptive and Heterogeneous Hadoop MapReduce}
+\author{Aaron Burkhart, Ross Nordstrom\\
+        University of Colorado - Colorado Springs\\
+        1420 Austin Bluffs Pkwy,\\
+        Colorado Springs, CO 80918\\
+        \texttt{\{aburkhar,rnordstr\}@uccs.edu}
+       }
+\date{April 2014}
+
+\maketitle
+
+\begin{abstract}
+Hadoop is a commonly used Apache implementation of MapReduce, a technique for
+parallel processing in distributed systems. One weakness of Hadoop is it does
+not assign tasks based on the computers’ computational capabilities. By scaling
+how much work is sent to a given computer based on its capabilities, we can
+redce the difference in task completion time across the system, and thus improve
+the overall performance of Hadoop. We call such a system – with computers of
+varying capabilities – a heterogeneous environment. This research aims to develop
+a task scheduling and assignment algorithm for Hadoop MapReduce that is sensitive 
+to both the hardware configurations of the nodes in the cluster and interference
+from other non-cluster nodes running on the same hardware as cluster node.
+\end{abstract}
+
+\categories{C.2.4[Performance], Cloud computing}
+\terms{Algorithms, Performance, Design, Experimentation}
+\keywords{Hadoop, MapReduce, Heterogeneous, Configuration, Cloud}
+
+\section{Introduction}
+Hadoop MapReduce is well-liked for its ability to dispatch tasks across workers
+in a datacenter. Hypothetically, if the work is split up into equal parts and dispatched
+efficiently, the system will work well. In reality, datacenters today are being
+updated continuously with new hardware, while old hardware lingers in the datacente
+. Additionally, most consumers of datacenters are not the owners. Take Amazon EC2
+or Windows Azure, for example. Companies maintain datacenters and sell access to
+it as a service. 
+
+Because modern datacenters are so frequently consumed as a service, the consumer
+has little control over what hardware to which they will have access. Even if the
+consumer had full control over the which hardware they accessed, it is costly and
+inefficient to maintain a datacenter full of machines with identical hardware. 
+Additionally, creating an algorithm to deploy a given MapReduce job across only 
+identical machines would be difficult.
+
+Rather than fight the structure of datacenters, adapting Hadoop to the environment
+in which it is deployed would allow for optimal MapReduce performance in arbitrary
+environments. This is especially important when deploying Hadoop using an IaaS 
+(infrastructure as a service).
+
+Our research aims to modify Hadoop v1.2.1 to adaptively dispatch MapReduce tasks
+based on both the workers’ computational power and scheduling status.
+
+Example reference\ref{section:motivation}.
+
+\input{motivation}
+\input{relatedwork}
+\input{proposeddesign}
+\input{evaluation}
+\input{conclusion}
+
+\bibliography{citations}{}
+\bibliographystyle{plain}
+
+\end{document}
+
