@@ -5,7 +5,12 @@ all:
 	pdflatex proposal.tex
 	pdflatex proposal.tex
 	pdflatex proposal.tex
-
+	mv *.aux build/.
+	mv *.log build/.
+	mv *.bbl build/.
+	mv *.blg build/.
+	mv *.out build/.
+	mv proposal.pdf BurkhartNordstrom_Adaptive-and-Heterogeneous-Hadoop-MapReduce.pdf
 
 clean:
 	rm -fv *.aux *.pdf *.log *.bbl *.blg *.out
