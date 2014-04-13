@@ -1,9 +1,7 @@
 # Adaptive and Heterogeneous Hadoop MapReduce
- > Aaron Burkhart, Ross Nordstrom
- 
- > University of Colorado - Colorado Springs
- 
- > CS 5540 - Datacenters and Cloud Computing
+    Aaron Burkhart, Ross Nordstrom
+    University of Colorado - Colorado Springs
+    CS 5540 - Datacenters and Cloud Computing
 
 ## Overview
 
