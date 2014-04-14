@@ -1,9 +1,15 @@
 \section{Related Work}
 \label{section:relatedwork}
 Hadoop MapReduce is a popular subject of research. The primary focus of the research
-is on performance improvement. While the proposals other authors have made vary in
-approach and effectiveness, we have not yet found an approach similar to the one
-we propose.
+is on performance improvement. Contributionss other authors have made vary in
+approach and effectiveness.
+
+Tarazu is one framework that takes a similar approach to optimizing MapReduce. Tarazu 
+differentiates between high performing nodes and low power nodes of heterogeneous clusters.
+For the Map phase, it attempts to reduce the number of tasks running remotely for high
+performing nodes and alleviates bursty network traffic. It reduces competition between
+these remote tasks and Shuffle tasks. Additionally, in the Reduce phase it attempts to
+assign keys to Reduce tasks based on their hardware capabilities.
 
 Here, we list a few of the other approaches to performance improvement that we have found:
 \begin{description}
