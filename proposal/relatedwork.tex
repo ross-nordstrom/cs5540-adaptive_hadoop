@@ -1,10 +1,10 @@
 \section{Related Work}
 \label{section:relatedwork}
 Hadoop MapReduce is a popular subject of research. The primary focus of the research
-is on performance improvement. Contributionss other authors have made vary in
+is on performance improvement. Contributions other authors have made vary in
 approach and effectiveness.
 
-Tarazu is one framework that takes a similar approach to optimizing MapReduce. Tarazu 
+Tarazu is one framework that takes a similar approach to optimizing MapReduce \cite{Tarazu}. Tarazu
 differentiates between high performing nodes and low power nodes of heterogeneous clusters.
 For the Map phase, it attempts to reduce the number of tasks running remotely for high
 performing nodes and alleviates bursty network traffic. It reduces competition between
@@ -16,6 +16,6 @@ Here, we list a few of the other approaches to performance improvement that we h
   \item{Levitated Merge:} Improves the performance of MapReduce by focusing on network latency between workers \cite{LevitatedMerge}.
   \item{SHadoop:} Improves MapReduce performance by optimizing the job and task execution \cite{SHadoop}.
   \item{HJ-Hadoop:} Improves MapReduce performance by optimizing for multi-core machines \cite{HJHadoop}.
-  \item{I/O-Intensive Hadoop:} Improves MapReduce performance by using dynamic processing slots for I/O instensive jobs \cite{IOIntensiveHadoop}.
+  \item{I/O-Intensive Hadoop:} Improves MapReduce performance by using dynamic processing slots for I/O intensive jobs \cite{IOIntensiveHadoop}.
   \item{Hybrid MapReduce:} Improves MapReduce performance by using a combination of virtual and native environments \cite{HybridMR}.
 \end{description}
