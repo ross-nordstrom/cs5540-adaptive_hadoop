@@ -4,12 +4,22 @@ Hadoop MapReduce is a popular subject of research. The primary focus of the rese
 is on performance improvement. Contributions other authors have made vary in
 approach and effectiveness.
 
-Tarazu is one framework that takes a similar approach to optimizing MapReduce \cite{Tarazu}. Tarazu
-differentiates between high performing nodes and low power nodes of heterogeneous clusters.
-For the Map phase, it attempts to reduce the number of tasks running remotely for high
-performing nodes and alleviates bursty network traffic. It reduces competition between
-these remote tasks and Shuffle tasks. Additionally, in the Reduce phase it attempts to
+Tarazu is one framework that takes a similar approach to optimizing MapReduce \cite{Tarazu}. 
+It achieves a performance improvement over standard Hadoop by focusing on reducing network
+interference during the Map phase and reducing disparity in the time for each node to complete
+the Reduce phase. Tarazu differentiates between high performing nodes and low power nodes of 
+heterogeneous clusters. For the Map phase, it attempts to reduce the number of tasks running 
+remotely for high performing nodes and alleviates bursty network traffic. It reduces competition 
+between these remote tasks and Shuffle tasks. Additionally, in the Reduce phase it attempts to
 assign keys to Reduce tasks based on their hardware capabilities.
+
+While similar to our work, Tarazu fails to assign work in anticipation of the nodes' computational
+capability. This is a critical shortcoming in their design because it sets the system up 
+for needing to adjust tasks, and requiring the more performant nodes to steal more tasks 
+and do more remote work. Tarazu's authors cite the reason for this is to help improve data 
+reliability because they are preventing the large nodes from being a single point of failure. 
+We contend that this concern is not worth the performance they sacrifice by not loading the 
+large nodes appropriately. 
 
 Here, we list a few of the other approaches to performance improvement that we have found:
 \begin{description}
