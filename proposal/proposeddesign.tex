@@ -8,5 +8,22 @@ workloads in a heterogeneous environment; that is, if two machines are assigned 
 tasks, but one machine is twice as powerful as the other, it was effectively given half as
 much work since it will complete it twice as fast as the other machine.
 
-\subsection{MapReduce Task Assignment}
+\subsection{Hadoop MapReduce Task Assignment}
 In standard Hadoop MapReduce, the Mapper divides up and distributes tasks to the workers.
+Understanding this implementation is key to our research so that we can scale task sizes
+to the computational capabilities of each MapReduce node. In Hadoop, a \texttt{JobConf}
+object defines the configuration for each Mapper. By customizing this object per node,
+we should be able to scale how much work a given node is given based on its capabilities.
+
+A naive approach to scaling node task assignment would be to perform some basic performance
+diagnostics during the task setup phase, and apply a simple weight coefficient to how much
+work it should receive.
+
+\subsection{Hadoop MapReduce Reduces}
+In addition to hetergeneous machines, datacenters can also exhibit temporal heterogeneity.
+VM performance depends on the behavior of other VMs on the same machine at any given time.
+This means a VM on a machine with other, inactive VMs will initially be very performant;
+but once the other VMs begin doing work the VM will experience performance degradation.
+The variability of a VM's performance also depends on the abstraction layer between the VMs
+and the physical hardware.
+
