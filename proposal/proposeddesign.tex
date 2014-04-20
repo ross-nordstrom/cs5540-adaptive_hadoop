@@ -19,11 +19,22 @@ A naive approach to scaling node task assignment would be to perform some basic 
 diagnostics during the task setup phase, and apply a simple weight coefficient to how much
 work it should receive.
 
-\subsection{Hadoop MapReduce Reduces}
+\subsection{Datacenter VM Interference}
+\label{sec:interference}
 In addition to hetergeneous machines, datacenters can also exhibit temporal heterogeneity.
 VM performance depends on the behavior of other VMs on the same machine at any given time.
 This means a VM on a machine with other, inactive VMs will initially be very performant;
 but once the other VMs begin doing work the VM will experience performance degradation.
 The variability of a VM's performance also depends on the abstraction layer between the VMs
 and the physical hardware.
+
+\subsection{Hadoop MapReduce Task Stealing}
+The hardware interefence described in \ref{sec:interference} must be addressed dynamically
+during runtime. An intuitive place to insert extra logic addressing this is during task
+stealing.
+
+In MapReduce jobs, each node is typically assigned a number of tasks. As some nodes 
+complete their work ahead of schedule, they will steal tasks from other, backed-up,
+nodes. If we modified the logic around which nodes to steal from, and how much work
+to steal, we could help ensure all the tasks are finished closer to the same time.
 
