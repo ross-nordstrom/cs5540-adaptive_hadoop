@@ -1,3 +1,12 @@
 \section{Proposed Design}
 \label{section:propeseddesign}
-...[placeholder]...
+
+Before doing any implementation, we conducted some investigation into how Hadoop works, 
+specifically how it assigns tasks initially and how they are reassigned during runtime.
+These are important attributes to understand, because they contribute to uneven effective
+workloads in a heterogeneous environment; that is, if two machines are assigned equal-sized
+tasks, but one machine is twice as powerful as the other, it was effectively given half as
+much work since it will complete it twice as fast as the other machine.
+
+\subsection{MapReduce Task Assignment}
+In standard Hadoop MapReduce, the Mapper divides up and distributes tasks to the workers.
