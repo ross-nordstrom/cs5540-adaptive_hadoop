@@ -9,6 +9,27 @@ tasks, but one machine is twice as powerful as the other, it was effectively giv
 much work since it will complete it twice as fast as the other machine.
 
 \subsection{Hadoop MapReduce Task Assignment}
+
+We show the steps Hadoop MapReduce takes to carry out a job in \ref{fig:flow}. MapReduce 
+works by taking map and reduce functions from the application (Wordcount for example), 
+then configuring a \texttt{Job} object representing that application and its configuration.
+Input data for the job is loaded into the Hadoop Distributed File System by the user. 
+The job is then submitted to the \texttt{JobClient}, which subsequently calls the 
+\texttt{getSplits} method to divide the input data to appropriate sizes to be sent out to
+the MapReduce nodes. The \texttt{TaskTracker} on each slave node communicates with
+the \texttt{JobTracker} on the master node to be assigned FileInput splits based on the
+\texttt{TaskScheduler}. 
+
+defining \texttt{FileInput} splits, and
+assigned to nodes by the \texttt{TaskScheduler} via the \texttt{JobTracker}. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{flow.jpg}
+\caption{Workflow of a Hadoop MapReduce job}
+\label{fig:flow}
+\end{figure}
+
 In standard Hadoop MapReduce, the Mapper divides up and distributes tasks to the workers.
 Understanding this implementation is key to our research so that we can scale task sizes
 to the computational capabilities of each MapReduce node. In Hadoop, a \texttt{JobConf}
