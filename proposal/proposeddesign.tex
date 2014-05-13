@@ -18,10 +18,7 @@ The job is then submitted to the \texttt{JobClient}, which subsequently calls th
 \texttt{getSplits} method to divide the input data to appropriate sizes to be sent out to
 the MapReduce nodes. The \texttt{TaskTracker} on each slave node communicates with
 the \texttt{JobTracker} on the master node to be assigned FileInput splits based on the
-\texttt{TaskScheduler}. 
-
-defining \texttt{FileInput} splits, and
-assigned to nodes by the \texttt{TaskScheduler} via the \texttt{JobTracker}. 
+\texttt{TaskScheduler}.
 
 \begin{figure}[ht!]
 \centering
@@ -30,15 +27,56 @@ assigned to nodes by the \texttt{TaskScheduler} via the \texttt{JobTracker}.
 \label{fig:flow}
 \end{figure}
 
-In standard Hadoop MapReduce, the Mapper divides up and distributes tasks to the workers.
-Understanding this implementation is key to our research so that we can scale task sizes
-to the computational capabilities of each MapReduce node. In Hadoop, a \texttt{JobConf}
-object defines the configuration for each Mapper. By customizing this object per node,
-we should be able to scale how much work a given node is given based on its capabilities.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{homogeneous_mr.jpg}
+\caption{MapReduce task assignment in Homogeneous Environment}
+\label{fig:homogeneoues_mr}
+\end{figure}
 
-A naive approach to scaling node task assignment would be to perform some basic performance
-diagnostics during the task setup phase, and apply a simple weight coefficient to how much
-work it should receive.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{homogeneous_time.jpg}
+\caption{MapReduce task completion in Homogeneous Environment}
+\label{fig:homogeneoues_time}
+\end{figure}
+
+Hadoop MapReduce is designed for homogeneous environments. Without modifications, the input
+data is divided into evenly-sized splits \ref{fig:homogeneous_mr}. In a homogeneous environment, 
+this would be ideal since each node would be assigned the same number of map tasks, and would 
+finish each one in the same amount of time, as shown in \ref{fig:homogeneous_time}. 
+
+Modern datacenters, as we discussed in \ref{motivation}, are usually heterogeneous. That means,
+when given the same amount of uniformly-sized tasks, different nodes will complete their tasks 
+at different times. We show an example of this in \ref{fig:heterogeneous_time}. If the task completion
+is skewed enough, the fastest nodes will actually steal tasks from the slower nodes; however,
+this would introduce other performance issues from the overhead of the task stealing, and
+sub-optimal performance from potential data locality issues. We believe a better solution is to
+adjust the FileInput split sizes in proportion to the nodes' performance capabilities, such that
+the total task completion time for each node is the same (\ref{adaptive_mr}). We could do this by making some larger
+splits which would be assigned to the more powerful nodes. An example of this flow is shown in
+\ref{adaptive_time} showing an example optimal adaptation.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{heterogeneous_time.jpg}
+\caption{MapReduce task completion in Heterogeneous Environment}
+\label{fig:heterogeneous_time}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{adaptive_mr.jpg}
+\caption{MapReduce adapted flow for Heterogeneous Environment}
+\label{fig:adaptive_mr}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{adaptive_time.jpg}
+\caption{MapReduce task completion in Heterogeneous Environment with adaptive split sizes}
+\label{fig:adaptive_time}
+\end{figure}
 
 \subsection{Datacenter VM Interference}
 \label{sec:interference}
