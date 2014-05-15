@@ -1,0 +1,26 @@
+\section{Motivation}
+\label{section:motivation}
+
+When Hadoop receives a job, it first takes the input files and breaks them into uniform-size splits that
+get written back to the DFS (Distributed File System). In a homogeneous configuration, the Hadoop cluster
+will have multiple nodes with similar hardware capabilities. Each of these slave nodes will have a
+TaskTracker that is responsible for running and monitoring the MapTasks and ReduceTasks. During the MapPhase,
+when the TaskTracker has open map slots available, it will execute MapTasks with the input splits that were
+created before. This structure is depicted in figure 1.
+
+<Insert Figure 1, Homogeneous Hadoop structure>
+
+Figure 2 illustrates how these MapTasks execute in a homogeneous environment. Since the homogeneous nodes have
+similar hardware and processing capabilities, they should execute their tasks in relatively the same amount of
+time. This is the ideal case and the most efficient use of cluster hardware.
+
+<Insert Figure 2, Execution of MapTasks on similar nodes in a homogeneous cluster>
+
+However, this ideal homogeneous configuration is rarely the case in modern data centers. Figure 3 shows how
+the current design of Hadoop is likely to run on clusters with heterogeneous hardware. Since the nodes
+have different processing capabilities, some of the nodes will finish their MapTasks faster than others
+resulting in uneven overall execution time. Since the Reduce phase and tasks cannot begin until all of
+the MapTasks are completed, this leaves some idle time for the nodes that have completed their tasks and
+are waiting for the slower nodes to catch up.
+
+<Insert Figure 3, Execution of MapTasks on disimilar hardware in a heterogeneous cluster>
