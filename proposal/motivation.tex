@@ -17,14 +17,14 @@ could change performance as well. These two problems can cause inefficient
 resource usage and degraded performance. 
 
 \subsection{Modifying Hadoop}
-A new scheduling and assignment algorithm is needed that is capable of 
-identifying the hardware configurations of the nodes in its cluster and 
-scheduling tasks on them accordingly. This algorithm should also be sensitive 
+A new input splitting and task assignment algorithm is needed that is capable of 
+identifying the hardware configurations of the nodes in its cluster, computing
+input splits of different sizes, and scheduling tasks on them accordingly.
+An additional optimization not covered in this paper would be to modify 
+this algorithm to also be sensitive 
 to interference from other non-cluster nodes and adapt. The hardware 
-configurations of the cluster nodes can be set ahead of time, however, 
-interference from non-cluster nodes cannot be anticipated. This algorithm 
-should be able to detect interference and dynamically change the task settings 
-accordingly.
+configurations of the cluster nodes can be set ahead of time or queried at startup, however, 
+interference from non-cluster nodes cannot be anticipated.
 
 The existing Hadoop task scheduler/assignment module will need to be identified 
 in the source code for Hadoop 1.2.1. It will then need to be either modified or 
