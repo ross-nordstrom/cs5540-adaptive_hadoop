@@ -29,6 +29,9 @@ We then used log statements to confirm the splits were modified successfully.
 An example of these log statements is shown in \ref{fig:getSplitsLog}.
 
 \begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{getSplitsLog.jpg}
+\caption{Logs showing modified split sizes in a wordcount job}
 \label{fig:getSplitsLog}
 \end{figure}
 
@@ -38,4 +41,4 @@ environment would be in the \texttt{conf/} directory, and modifying the
 \texttt{JobConf} class to parse in a new property we define. We would then
 use this configuration to determine how many and of what size splits to make
 in \texttt{getSplits}, and then which nodes should get which sized splits
-in the \texttt{TaskScheduler}.
+in the \texttt{TaskScheduler}
