@@ -6,6 +6,14 @@ assuming our idea holds, there are a number of potential extensions of our work.
 describe both sets of future work.
 
 \subsection{Immediate Work}
+To fully vet out our proposal, we still need to assign the modified input splits to a node
+of relative size and evaluate the performance difference to standard Hadoop with this change.
+Once this is complete, we would setup a test suite to automate performance evaluations as we
+develop an algorithm to qualify a node's performance capabilities and map that to a modified
+input split size. We would then need to customize the \texttt{JobConf} class to carry
+information about nodes (hosts) necessary to determine split sizes and schedule map tasks
+appropriately. We envision this information could be as simple as a key-value list tying
+a performance multiplier to each node (1x, 2x, 3x), relative to the least performant node.
 
 \subsection{Extension Work}
 Another approach to balancing the execution of MapTasks would be to calculate input splits
