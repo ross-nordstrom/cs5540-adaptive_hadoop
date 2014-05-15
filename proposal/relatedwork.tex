@@ -10,7 +10,7 @@ interference during the Map phase and reducing disparity in the time for each no
 the Reduce phase. Tarazu differentiates between high performing nodes and low power nodes of 
 heterogeneous clusters. For the Map phase, it attempts to reduce the number of tasks running 
 remotely for high performing nodes and alleviates bursty network traffic. It reduces competition 
-between these remote tasks and Shuffle tasks. Additionally, in the Reduce phase it attempts to
+for network bandwidth between these remote tasks and Shuffle tasks. Additionally, in the Reduce phase it attempts to
 assign keys to Reduce tasks based on their hardware capabilities.
 
 While similar to our work, Tarazu fails to assign work in anticipation of the nodes' computational
@@ -19,7 +19,8 @@ for needing to adjust tasks, and requiring the more performant nodes to steal mo
 and do more remote work. Tarazu's authors cite the reason for this is to help improve data 
 reliability because they are preventing the large nodes from being a single point of failure. 
 We contend that this concern is not worth the performance they sacrifice by not loading the 
-large nodes appropriately. 
+large nodes appropriately. This concern could also be alleviated by providing some data duplication
+for the input splits.
 
 Here, we list a few of the other approaches to performance improvement that we have found:
 \begin{description}
