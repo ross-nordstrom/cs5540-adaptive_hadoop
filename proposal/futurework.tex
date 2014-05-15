@@ -15,6 +15,8 @@ information about nodes (hosts) necessary to determine split sizes and schedule 
 appropriately. We envision this information could be as simple as a key-value list tying
 a performance multiplier to each node (1x, 2x, 3x), relative to the least performant node.
 
+Another minor thing we'd like to do is improve our 
+
 \subsection{Extension Work}
 Another approach to balancing the execution of MapTasks would be to calculate input splits
 dynamically instead of creating them all ahead of time. When a slot is open on a \texttt{TaskTracker}, it would

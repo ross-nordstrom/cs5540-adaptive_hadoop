@@ -1,0 +1,41 @@
+\section{Implementation}
+\label{section:implementation}
+Using Hadoop v1.2.1, we were able to build and run a wordcount job
+on both a single-node setup and a distributed two-node setup. Once
+we had achieved this, we began instrumenting the code with extra,
+custom logging to better understand how Hadoop works. Using the
+logging and growing understanding of the Hadoop code base, we were
+able to identify a couple key code insertion/modification points.
+
+\subsection{Modifying Split Sizes}
+One of the fundamental tasks we set out to achieve was to modify the
+sizes of input splits. We found that the \texttt{InputSplit.getSplits()}
+method, defined in \texttt{FileInputFormat.java} offered the cleanest
+point for us to modify the splits. We opted for a contrived proof of
+concept implementation, where we treated the job as static (by running
+the same job repeatedly on the same machines) and forcing half of the
+splits to be large. Our modification aims to be unobtrusive to Hadoop's
+normal split algorithms by simply using a \texttt{minSize} to force larger
+splits to occur. The code to do so is shown in \ref{fig:getSplitsCode}.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{getSplitsCode.jpg}
+\caption{Code coercing modified split sizes}
+\label{fig:getSplitsCode}
+\end{figure}
+
+We then used log statements to confirm the splits were modified successfully.
+An example of these log statements is shown in \ref{fig:getSplitsLog}.
+
+\begin{figure}[ht!]
+\label{fig:getSplitsLog}
+\end{figure}
+
+\subsection{Classifying Host Capabilities}
+The simplest way to tie performance information to nodes in the Hadoop
+environment would be in the \texttt{conf/} directory, and modifying the
+\texttt{JobConf} class to parse in a new property we define. We would then
+use this configuration to determine how many and of what size splits to make
+in \texttt{getSplits}, and then which nodes should get which sized splits
+in the \texttt{TaskScheduler}.

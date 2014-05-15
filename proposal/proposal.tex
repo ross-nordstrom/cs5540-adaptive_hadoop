@@ -39,8 +39,8 @@ to the hardware configurations of the nodes in the cluster.
 Hadoop MapReduce is well-liked for its ability to dispatch tasks across workers
 in a datacenter. Hypothetically, if the work is split up into equal parts and dispatched
 efficiently across similar nodes, the system will work well. In reality, datacenters today are being
-updated continuously with new hardware, while old hardware lingers in the datacente
-. Some customers are willing to pay more for high performing nodes, while others prioritize cost over
+updated continuously with new hardware, while old hardware lingers in the datacenter. 
+Some customers are willing to pay more for high performing nodes, while others prioritize cost over
 performance. This diversity in customer needs contributes to diversity in datacenter hardware. 
 Additionally, most consumers of datacenters are not the owners. Take Amazon EC2
 or Windows Azure, for example. Companies maintain datacenters and sell access to
@@ -59,18 +59,16 @@ environments. This is especially important when deploying Hadoop using an IaaS
 (infrastructure as a service).
 
 Our research aims to modify Hadoop v1.2.1 to adaptively vary the sizes of the input
-splits and dispatch MapReduce tasks based on both the workers’ computational power
+splits and dispatch MapReduce tasks based on both the workers' computational power
 and scheduling status. In this paper, we discuss the existing implementation of Hadoop
 and elaborate the issues it has when executing on heterogeneous environments. We then
 describe our solution in more detail and evaluate our resulting implementation. Finally
 we suggest directions for future and improvements to our progress.
 
-Example reference\ref{section:motivation}.
-
 \input{motivation}
 \input{relatedwork}
 \input{proposeddesign}
-\input{evaluation}
+\input{implementation}
 \input{futurework}
 \input{conclusion}
 
