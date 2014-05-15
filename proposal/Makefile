@@ -10,7 +10,7 @@ all:
 	mv *.bbl build/.
 	mv *.blg build/.
 	mv *.out build/.
-	mv proposal.pdf BurkhartNordstrom_Adaptive-and-Heterogeneous-Hadoop-MapReduce.pdf
+	mv proposal.pdf BurkhartNordstrom_Adaptive-Hadoop.pdf
 
 clean:
 	rm -fv *.aux *.pdf *.log *.bbl *.blg *.out
