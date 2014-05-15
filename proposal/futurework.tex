@@ -8,3 +8,7 @@ describe both sets of future work.
 \subsection{Immediate Work}
 
 \subsection{Extension Work}
+Another approach to balancing the execution of MapTasks would be to calculate input splits
+dynamically instead of creating them all ahead of time. When a slot is open on a \texttt{TaskTracker}, it would
+be assigned a task with an input split that gets created with a size appropriate for the current circumstances
+and the processing capabilities of the node it will be executed on.
