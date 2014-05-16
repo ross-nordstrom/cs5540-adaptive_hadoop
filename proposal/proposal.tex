@@ -28,8 +28,8 @@ for low performing nodes to finish. This skew can also be caused by interference
 third party VMs running on the same hardware as nodes in the Hadoop cluster. By scaling
 how much work is sent to a given computer based on its capabilities, we can
 redce the difference in task completion time across the system, and thus improve
-the overall performance of Hadoop. We call such a system – with computers of
-varying capabilities – a heterogeneous environment. This research aims to develop
+the overall performance of Hadoop. We call such a system -- with computers of
+varying capabilities -- a heterogeneous environment. This research aims to develop
 a task scheduling and assignment algorithm for Hadoop MapReduce that is sensitive
 to both the hardware configurations of the nodes in the cluster and interference
 from other non-cluster nodes running on the same hardware as cluster node.
@@ -43,16 +43,16 @@ from other non-cluster nodes running on the same hardware as cluster node.
 Hadoop MapReduce is well-liked for its ability to dispatch tasks across workers
 in a datacenter. Hypothetically, if the work is split up into equal parts and dispatched
 efficiently across similar nodes, the system will work well. In reality, datacenters today are being
-updated continuously with new hardware, while old hardware lingers in the datacenter. 
+updated continuously with new hardware, while old hardware lingers in the datacenter.
 Some customers are willing to pay more for high performing nodes, while others prioritize cost over
-performance. This diversity in customer needs contributes to diversity in datacenter hardware. 
+performance. This diversity in customer needs contributes to diversity in datacenter hardware.
 Additionally, most consumers of datacenters are not the owners. Take Amazon EC2
 or Windows Azure, for example. Companies maintain datacenters and sell access to
 it as a service.
 
 Because modern datacenters are so frequently consumed as a service, the consumer
 has little control over what hardware to which they will have access. Even if the
-consumer had full control over the which hardware they accessed, it is costly and
+consumer had full control over which hardware they accessed, it is costly and
 inefficient to maintain a datacenter full of machines with identical hardware.
 Additionally, creating an algorithm to deploy a given MapReduce job across only
 identical machines would be difficult.
@@ -74,7 +74,7 @@ splits and dispatch MapReduce tasks based on both the workers' computational pow
 and scheduling status. In this paper, we discuss the existing implementation of Hadoop
 and elaborate the issues it has when executing on heterogeneous environments. We then
 describe our solution in more detail and evaluate our resulting implementation. Finally
-we suggest directions for future and improvements to our progress.
+we suggest directions for future work and improvements to our progress.
 
 \input{motivation}
 \input{relatedwork}

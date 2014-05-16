@@ -1,29 +1,29 @@
 \section{Motivation}
 \label{section:motivation}
-Hadoop MapReduce is an easy-to-use implementation of distributed, parallel data 
-processing. It has a history of making it easy for data scientists and industry 
-developers to implement parallel computing in the cloud, but for the serious 
-user of Hadoop, there is room for improvement. Hadoop does most things well, 
+Hadoop MapReduce is an easy-to-use implementation of distributed, parallel data
+processing. It has a history of making it easy for data scientists and industry
+developers to implement parallel computing in the cloud, but for the serious
+user of Hadoop, there is room for improvement. Hadoop does most things well,
 but we propose a modification to it that would improve its performance for its
 users in a heterogeneous environment.
 
 \subsection{Homogeneous Task Assignment}
-Hadoop MapReduce assumes homogeneous hardware configurations for the nodes in 
-its cluster when it schedules and assigns tasks to them. If the nodes in the 
-cluster in fact have heterogeneous hardware configurations then the execution 
-and completion times of these tasks could vary in unanticipated ways. 
-Additionally, interference from non-cluster nodes running on the same hardware 
-could change performance as well. These two problems can cause inefficient 
+Hadoop MapReduce assumes homogeneous hardware configurations for the nodes in
+its cluster when it schedules and assigns tasks to them. If the nodes in the
+cluster in fact have heterogeneous hardware configurations then the execution
+and completion times of these tasks could vary in unanticipated ways.
+Interference from non-cluster nodes running on the same hardware
+could change performance as well. These two problems can cause inefficient
 resource usage and degraded performance since the high performing nodes
 will have to wait for low performing nodes to catch up.
 
 \subsection{Modifying Hadoop}
-A new input splitting and task assignment algorithm is needed that is capable of 
+A new input splitting and task assignment algorithm is needed that is capable of
 identifying the hardware configurations of the nodes in its cluster, computing
 input splits of different sizes, and scheduling tasks on them accordingly.
 This implementation could further be modified to detect performance degradation
 inconsistent with nominal execution of nodes caused by interference from non-cluster
-VMs and adapt accordingly. The hardware 
-configurations of the cluster nodes can be set ahead of time or queried at startup, however, 
+VMs and adapt accordingly. The hardware
+configurations of the cluster nodes can be set ahead of time or queried at startup; however,
 interference from non-cluster nodes cannot be anticipated ahead of time. It would
 need to be detected at run time.

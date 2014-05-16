@@ -18,15 +18,15 @@ splits to be large. Our modification aims to be unobtrusive to Hadoop's
 normal split algorithms by simply using a \texttt{minSize} to force larger
 splits to occur. The code to do so is shown in \ref{fig:getSplitsCode}.
 
+We then used log statements to confirm the splits were modified successfully.
+An example of these log statements is shown in \ref{fig:getSplitsLog}.
+
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=90mm]{getSplitsCode.jpg}
 \caption{Code coercing modified split sizes}
 \label{fig:getSplitsCode}
 \end{figure}
-
-We then used log statements to confirm the splits were modified successfully.
-An example of these log statements is shown in \ref{fig:getSplitsLog}.
 
 \begin{figure}[ht!]
 \centering
