@@ -22,7 +22,10 @@
 \begin{abstract}
 Hadoop is a commonly used Apache implementation of MapReduce, a technique for
 parallel processing in distributed systems. One weakness of Hadoop is it does
-not compute input splits or assign tasks based on the computers' computational capabilities. By scaling
+not compute input splits or assign tasks based on the computers' computational capabilities.
+This causes an execution time skew between nodes, leaving high performing nodes waiting
+for low performing nodes to finish. This skew can also be caused by interference from
+third party VMs running on the same hardware as nodes in the Hadoop cluster. By scaling
 how much work is sent to a given computer based on its capabilities, we can
 redce the difference in task completion time across the system, and thus improve
 the overall performance of Hadoop. We call such a system – with computers of
@@ -53,6 +56,13 @@ consumer had full control over the which hardware they accessed, it is costly an
 inefficient to maintain a datacenter full of machines with identical hardware.
 Additionally, creating an algorithm to deploy a given MapReduce job across only
 identical machines would be difficult.
+
+Another issue with modern datacenters, is that the hardware is shared between users.
+The user deploying a Hadoop cluster usually won't have control over which physical
+machines their VMs will be deployed to and there may very well be other users with
+VMs sharing and competing for physical hardware resources. This can cause performance
+degradation for some of the nodes in your cluster, further imbalancing execution time.
+This is true for both homogeneous and heterogeneous clusters.
 
 Rather than fight the structure of datacenters, adapting Hadoop to the environment
 in which it is deployed would allow for optimal MapReduce performance in arbitrary
