@@ -15,10 +15,18 @@ information about nodes (hosts) necessary to determine split sizes and schedule 
 appropriately. We envision this information could be as simple as a key-value list tying
 a performance multiplier to each node (1x, 2x, 3x), relative to the least performant node.
 
-Another minor thing we'd like to do is improve our 
-
 \subsection{Extension Work}
 Another approach to balancing the execution of MapTasks would be to calculate input splits
 dynamically instead of creating them all ahead of time. When a slot is open on a \texttt{TaskTracker}, it would
 be assigned a task with an input split that gets created with a size appropriate for the current circumstances
 and the processing capabilities of the node it will be executed on.
+
+As mentioned earlier, interference from third party VMs running on the same hardware
+as the Hadoop nodes can cause their performance to vary and create execution imbalances
+between nodes. This is true for both
+homogeneous and heterogeneous clusters. To make Hadoop truly adaptive, it should
+have some way to account for this interference when creating splits or scheduling tasks. A possible
+solution to this was alluded to in previous sections: if input sizes could be split dynamically, 
+and/or nodes could provide current performance metric information to the JobTracker in the
+\texttt{heartbeat} then the \texttt{TaskScheduler} could create correctly sized splits and 
+assign tasks accordingly.
