@@ -36,9 +36,24 @@ An example of these log statements is shown in \ref{fig:getSplitsLog}.
 \end{figure}
 
 \subsection{Classifying Host Capabilities}
+Simply creating different size input splits is not sufficient for increasing
+performance without associating which node or classification of node should
+get which size split. There are several ways in which this can be done.
 The simplest way to tie performance information to nodes in the Hadoop
-environment would be in the \texttt{conf/} directory, and modifying the
-\texttt{JobConf} class to parse in a new property we define. We would then
+environment would be to create a file in the \texttt{conf/} directory with
+this information, and modifying the
+\texttt{JobConf} class to parse in any new properties we define. A rudimentary
+method would be to define two or more static input split sizes and two or more
+classifications of nodes, identifying which nodes belong to which category.
+We would then
 use this configuration to determine how many and of what size splits to make
 in \texttt{getSplits}, and then which nodes should get which sized splits
-in the \texttt{TaskScheduler}
+in the \texttt{TaskScheduler}. The \texttt{TaskScheduler} uses the
+\texttt{TaskTrackerStatus} to get information about the node it is currently
+assigning tasks to. This class could be modified to contain the classification
+information about that node and then it could determine which input split size
+to give it. A more dynamic solution would be to have each node report current
+performance metrics in its \texttt{heartbeat} to the JobTracker. This metric
+would then determine what input split size to give it. This method would also be
+somewhat sensitive to degraded performance on that node caused by interference
+from third party VMs running on the same hardware.
