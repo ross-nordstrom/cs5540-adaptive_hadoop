@@ -14,22 +14,16 @@ cluster in fact have heterogeneous hardware configurations then the execution
 and completion times of these tasks could vary in unanticipated ways. 
 Additionally, interference from non-cluster nodes running on the same hardware 
 could change performance as well. These two problems can cause inefficient 
-resource usage and degraded performance. 
+resource usage and degraded performance since the high performing nodes
+will have to wait for low performing nodes to catch up.
 
 \subsection{Modifying Hadoop}
 A new input splitting and task assignment algorithm is needed that is capable of 
 identifying the hardware configurations of the nodes in its cluster, computing
 input splits of different sizes, and scheduling tasks on them accordingly.
-An additional optimization not covered in this paper would be to modify 
-this algorithm to also be sensitive 
-to interference from other non-cluster nodes and adapt. The hardware 
+This implementation could further be modified to detect performance degradation
+inconsistent with nominal execution of nodes caused by interference from non-cluster
+VMs and adapt accordingly. The hardware 
 configurations of the cluster nodes can be set ahead of time or queried at startup, however, 
-interference from non-cluster nodes cannot be anticipated.
-
-The existing Hadoop task scheduler/assignment module will need to be identified 
-in the source code for Hadoop 1.2.1. It will then need to be either modified or 
-replaced to meet the requirements proposed in this document. A server cluster 
-with heterogeneous hardware configurations will be created and used to test the 
-performance of the system. Both the modified and unmodified code will be built 
-and deployed on this cluster. Both will run the same MapReduce job and the 
-performance of each will be compared.
+interference from non-cluster nodes cannot be anticipated ahead of time. It would
+need to be detected at run time.
