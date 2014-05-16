@@ -1,0 +1,192 @@
+ross@dualbuntu:adaptive-hadoop(adaptive-hadoop)$ ./scripts/multi-wordcount-master.sh
+=========== WAIT =====================
+Thu May 15 17:48:43 MDT 2014
+13053 Jps
+11815 NameNode
+12251 JobTracker
+12415 TaskTracker
+11981 DataNode
+12149 SecondaryNameNode
+======================================
+  Is everything running? You should see NameNode, DataNode, JobTracker, TaskTracker, etc in the JPS printout above. [y/N] y
+Great!
+./scripts/multi-wordcount-master.sh: line 25: return: can only `return' from a function or sourced script
+=========== DEFAULT  =================
+14/05/15 17:49:01 WARN mapred.JobClient: [[[RDN]]][SJI] JobClient.submitJobInternal:
+14/05/15 17:49:01 WARN mapred.JobClient: [[[RDN]]][SJI]    submitJobDir:   hdfs://hadoopMaster:54310/home/ross/Documents/hadoop_store/mapred/staging/ross/.staging/job_201405151747_0001
+14/05/15 17:49:01 WARN mapred.JobClient: [[[RDN]]][SJI]    ip:   dualbuntu/192.168.0.106
+14/05/15 17:49:01 WARN mapred.JobClient: [[[RDN]]][SJI]    about to write splits!
+14/05/15 17:49:01 WARN mapred.JobClient: [[[RDN]]][WS] JobClient.writeSplits2:
+14/05/15 17:49:01 WARN mapred.JobClient: [[[RDN]]][WS]      jobSubmitDir: hdfs://hadoopMaster:54310/home/ross/Documents/hadoop_store/mapred/staging/ross/.staging/job_201405151747_0001
+14/05/15 17:49:01 WARN mapred.JobClient: [[[RDN]]][WS]      new method
+14/05/15 17:49:01 WARN mapred.JobClient: [[[RDN]]][WS] JobClient.writeSplits1:
+14/05/15 17:49:01 WARN mapred.JobClient: [[[RDN]]][WS]      jobSubmitDir: hdfs://hadoopMaster:54310/home/ross/Documents/hadoop_store/mapred/staging/ross/.staging/job_201405151747_0001
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2] FileInputFormat.getSplits:
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]    min: 1
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]    min: 9223372036854775807
+14/05/15 17:49:01 INFO input.FileInputFormat: Total input paths to process : 14
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]    splits: 0
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]    Iterate files: 14
+14/05/15 17:49:01 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+14/05/15 17:49:01 WARN snappy.LoadSnappy: Snappy native library not loaded
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== big split 134217728, 9223372036854775807
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 134217728
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== big split 134217728, 9223372036854775807
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 134217728
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== big split 134217728, 9223372036854775807
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 134217728
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== big split 134217728, 9223372036854775807
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 134217728
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== big split 134217728, 9223372036854775807
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 134217728
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== big split 134217728, 9223372036854775807
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 134217728
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== big split 134217728, 9223372036854775807
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 134217728
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== little split 1, 167772160
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== little split 1, 167772160
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== little split 1, 167772160
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== little split 1, 167772160
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== little split 1, 167772160
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== little split 1, 167772160
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       ==MOD== little split 1, 167772160
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       block size: 67108864
+14/05/15 17:49:01 WARN input.FileInputFormat: [[[RDN]]][FIF2]       split size: 67108864
+14/05/15 17:49:01 INFO input.FileInputFormat: Total # of splits: 14
+14/05/15 17:49:01 WARN split.JobSplitWriter: [[[RDN]]][WS]   createSplitFiles1: hdfs://hadoopMaster:54310/home/ross/Documents/hadoop_store/mapred/staging/ross/.staging/job_201405151747_0001
+14/05/15 17:49:02 WARN mapred.JobClient: [[[RDN]]][WS]      just ran createSplitFiles: 14
+14/05/15 17:49:02 WARN mapred.JobClient: [[[RDN]]][SJI]    jobId:          job_201405151747_0001
+14/05/15 17:49:02 WARN mapred.JobClient: [[[RDN]]][SJI]    submitJobDir:   hdfs://hadoopMaster:54310/home/ross/Documents/hadoop_store/mapred/staging/ross/.staging/job_201405151747_0001
+14/05/15 17:49:02 INFO mapred.JobClient: Running job: job_201405151747_0001
+14/05/15 17:49:03 INFO mapred.JobClient:  map 0% reduce 0%
+14/05/15 17:49:12 INFO mapred.JobClient:  map 5% reduce 0%
+14/05/15 17:49:15 INFO mapred.JobClient:  map 9% reduce 0%
+14/05/15 17:49:16 INFO mapred.JobClient:  map 16% reduce 0%
+14/05/15 17:49:17 INFO mapred.JobClient:  map 17% reduce 0%
+14/05/15 17:49:18 INFO mapred.JobClient:  map 30% reduce 0%
+14/05/15 17:49:20 INFO mapred.JobClient:  map 39% reduce 0%
+14/05/15 17:49:21 INFO mapred.JobClient:  map 54% reduce 0%
+14/05/15 17:49:23 INFO mapred.JobClient:  map 61% reduce 0%
+14/05/15 17:49:24 INFO mapred.JobClient:  map 76% reduce 0%
+14/05/15 17:49:25 INFO mapred.JobClient:  map 91% reduce 0%
+14/05/15 17:49:26 INFO mapred.JobClient:  map 91% reduce 23%
+14/05/15 17:49:27 INFO mapred.JobClient:  map 99% reduce 23%
+14/05/15 17:49:30 INFO mapred.JobClient:  map 100% reduce 23%
+14/05/15 17:49:35 INFO mapred.JobClient:  map 100% reduce 30%
+14/05/15 17:49:40 INFO mapred.JobClient:  map 100% reduce 100%
+14/05/15 17:49:44 INFO mapred.JobClient: Job complete: job_201405151747_0001
+14/05/15 17:49:44 INFO mapred.JobClient: Counters: 30
+14/05/15 17:49:44 INFO mapred.JobClient:   Job Counters
+14/05/15 17:49:44 INFO mapred.JobClient:     Launched reduce tasks=1
+14/05/15 17:49:44 INFO mapred.JobClient:     SLOTS_MILLIS_MAPS=85165
+14/05/15 17:49:44 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+14/05/15 17:49:44 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+14/05/15 17:49:44 INFO mapred.JobClient:     Rack-local map tasks=8
+14/05/15 17:49:44 INFO mapred.JobClient:     Launched map tasks=14
+14/05/15 17:49:44 INFO mapred.JobClient:     Data-local map tasks=6
+14/05/15 17:49:44 INFO mapred.JobClient:     SLOTS_MILLIS_REDUCES=23617
+14/05/15 17:49:44 INFO mapred.JobClient:   File Output Format Counters
+14/05/15 17:49:44 INFO mapred.JobClient:     Bytes Written=540257
+14/05/15 17:49:44 INFO mapred.JobClient:   FileSystemCounters
+14/05/15 17:49:44 INFO mapred.JobClient:     FILE_BYTES_READ=84300900
+14/05/15 17:49:44 INFO mapred.JobClient:     HDFS_BYTES_READ=174111368
+14/05/15 17:49:44 INFO mapred.JobClient:     FILE_BYTES_WRITTEN=86769064
+14/05/15 17:49:44 INFO mapred.JobClient:     HDFS_BYTES_WRITTEN=540257
+14/05/15 17:49:44 INFO mapred.JobClient:   File Input Format Counters
+14/05/15 17:49:44 INFO mapred.JobClient:     Bytes Read=174109338
+14/05/15 17:49:44 INFO mapred.JobClient:   Map-Reduce Framework
+14/05/15 17:49:44 INFO mapred.JobClient:     Map output materialized bytes=1574496
+14/05/15 17:49:44 INFO mapred.JobClient:     Map input records=3751606
+14/05/15 17:49:44 INFO mapred.JobClient:     Reduce shuffle bytes=1574496
+14/05/15 17:49:44 INFO mapred.JobClient:     Spilled Records=6009689
+14/05/15 17:49:44 INFO mapred.JobClient:     Map output bytes=286982483
+14/05/15 17:49:44 INFO mapred.JobClient:     CPU time spent (ms)=72150
+14/05/15 17:49:44 INFO mapred.JobClient:     Total committed heap usage (bytes)=2573008896
+14/05/15 17:49:44 INFO mapred.JobClient:     Combine input records=32810890
+14/05/15 17:49:44 INFO mapred.JobClient:     SPLIT_RAW_BYTES=2030
+14/05/15 17:49:44 INFO mapred.JobClient:     Reduce input records=107072
+14/05/15 17:49:44 INFO mapred.JobClient:     Reduce input groups=44863
+14/05/15 17:49:44 INFO mapred.JobClient:     Combine output records=3299006
+14/05/15 17:49:44 INFO mapred.JobClient:     Physical memory (bytes) snapshot=2695528448
+14/05/15 17:49:44 INFO mapred.JobClient:     Reduce output records=44863
+14/05/15 17:49:44 INFO mapred.JobClient:     Virtual memory (bytes) snapshot=7851790336
+14/05/15 17:49:44 INFO mapred.JobClient:     Map output records=29618956
+Default wordcount ==> Elapsed time: 0:00:44
+======================================
+14/05/15 17:49:45 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+=========== RESULTS ==================
+-rwxrwxrwx 1 ross ross 1412513 May  6 23:57 scripts/out/wordcount_multi-20140506_2357.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 00:03 scripts/out/wordcount_multi-20140507_0003.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 00:05 scripts/out/wordcount_multi-20140507_0005.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 00:12 scripts/out/wordcount_multi-20140507_0012.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 00:13 scripts/out/wordcount_multi-20140507_0013.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 00:17 scripts/out/wordcount_multi-20140507_0017.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 00:18 scripts/out/wordcount_multi-20140507_0018.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 00:19 scripts/out/wordcount_multi-20140507_0019.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 21:16 scripts/out/wordcount_multi-20140507_2116.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 21:34 scripts/out/wordcount_multi-20140507_2134.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 22:01 scripts/out/wordcount_multi-20140507_2201.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 22:04 scripts/out/wordcount_multi-20140507_2204.log
+-rwxrwxrwx 1 ross ross 1412513 May  7 22:06 scripts/out/wordcount_multi-20140507_2206.log
+-rwxrwxrwx 1 ross ross       0 May  7 22:19 scripts/out/wordcount_multi-20140507_2219.log
+-rwxrwxrwx 1 ross ross       0 May  7 22:25 scripts/out/wordcount_multi-20140507_2225.log
+-rwxrwxrwx 1 ross ross  495673 May  7 22:34 scripts/out/wordcount_multi-20140507_2234.log
+-rwxrwxrwx 1 ross ross  495673 May  7 22:40 scripts/out/wordcount_multi-20140507_2240.log
+-rwxrwxrwx 1 ross ross  495673 May  7 22:43 scripts/out/wordcount_multi-20140507_2243.log
+-rwxrwxrwx 1 ross ross  495673 May  7 22:45 scripts/out/wordcount_multi-20140507_2245.log
+-rwxrwxrwx 1 ross ross  495673 May  7 22:47 scripts/out/wordcount_multi-20140507_2247.log
+-rwxrwxrwx 1 ross ross  495673 May  7 22:48 scripts/out/wordcount_multi-20140507_2248.log
+-rwxrwxrwx 1 ross ross  495673 May  7 23:07 scripts/out/wordcount_multi-20140507_2307.log
+-rwxrwxrwx 1 ross ross  495673 May  7 23:19 scripts/out/wordcount_multi-20140507_2319.log
+-rwxrwxrwx 1 ross ross  495673 May  7 23:27 scripts/out/wordcount_multi-20140507_2327.log
+-rwxrwxrwx 1 ross ross  495673 May  7 23:30 scripts/out/wordcount_multi-20140507_2330.log
+-rwxrwxrwx 1 ross ross  495673 May  7 23:39 scripts/out/wordcount_multi-20140507_2339.log
+-rwxrwxrwx 1 ross ross  495673 May  7 23:40 scripts/out/wordcount_multi-20140507_2340.log
+-rwxrwxrwx 1 ross ross  529513 May  7 23:51 scripts/out/wordcount_multi-20140507_2351.log
+-rwxrwxrwx 1 ross ross  532774 May  8 00:05 scripts/out/wordcount_multi-20140508_0005.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:10 scripts/out/wordcount_multi-20140508_0010.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:12 scripts/out/wordcount_multi-20140508_0012.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:13 scripts/out/wordcount_multi-20140508_0013.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:15 scripts/out/wordcount_multi-20140508_0015.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:16 scripts/out/wordcount_multi-20140508_0016.log
+-rwxrwxrwx 1 ross ross       0 May  8 00:18 scripts/out/wordcount_multi-20140508_0018.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:19 scripts/out/wordcount_multi-20140508_0019.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:20 scripts/out/wordcount_multi-20140508_0020.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:21 scripts/out/wordcount_multi-20140508_0021.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:22 scripts/out/wordcount_multi-20140508_0022.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:24 scripts/out/wordcount_multi-20140508_0024.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:25 scripts/out/wordcount_multi-20140508_0025.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:30 scripts/out/wordcount_multi-20140508_0030.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:34 scripts/out/wordcount_multi-20140508_0034.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:35 scripts/out/wordcount_multi-20140508_0035.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:36 scripts/out/wordcount_multi-20140508_0036.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:37 scripts/out/wordcount_multi-20140508_0037.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:40 scripts/out/wordcount_multi-20140508_0040.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:41 scripts/out/wordcount_multi-20140508_0041.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:43 scripts/out/wordcount_multi-20140508_0043.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:45 scripts/out/wordcount_multi-20140508_0045.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:46 scripts/out/wordcount_multi-20140508_0046.log
+-rwxrwxrwx 1 ross ross  540257 May  8 00:47 scripts/out/wordcount_multi-20140508_0047.log
+-rwxrwxrwx 1 ross ross  540257 May 15 17:42 scripts/out/wordcount_multi-20140515_1742.log
+-rwxrwxrwx 1 ross ross  540257 May 15 17:47 scripts/out/wordcount_multi-20140515_1747.log
+-rwxrwxrwx 1 ross ross  540257 May 15 17:49 scripts/out/wordcount_multi-20140515_1749.log
+======================================
